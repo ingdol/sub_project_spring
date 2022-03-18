@@ -9,4 +9,6 @@ public class ReactController {
 	public String hello() {
 		return "안녕하세요";
 	}
+	
+	// sej 커밋 테스트
 }
