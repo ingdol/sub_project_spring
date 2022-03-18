@@ -11,4 +11,9 @@ public class ReactController {
 	}
 	
 	// sej 커밋 테스트
+	
+	@RequestMapping("sun")
+	public String sun() {
+		return "서연커밋";
+	}
 }
