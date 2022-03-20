@@ -14,4 +14,9 @@ public class ReactController {
 	// ldh 커밋 테스트!. 2222
 	// 서연 커밋 테스트
 	
+	@RequestMapping("sun")
+	public String sun() {
+		return "서연 연습";
+	}
+	
 }

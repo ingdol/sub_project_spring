@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+	 <mapper namespace="com.multi.sub_project_spring.QnaList.IQnaListDAO">
+		<resultMap id="qnaResult" type="com.multi.sub_project_spring.QnaList.QnaListVO">
+			<result property="hostqnaNo" column="hostqnaNo" />
+	        <result property="memNick" column="memNick" />
+	        <result property="hostqnaTitle" column="hostqnaTitle" />
+	        <result property="hostqnaInfo" column="hostqnaInfo" />
+	        <result property="hostqnaDate" column="hostqnaDate" />
+	        <result property="hostqnaFaq" column="hostqnaFaq" />
+	        <result property="hostqnaCom" column="hostqnaCom" />
+		</resultMap> 
+		
+		<!--  전체 qna리스트 조회 -->
+	  	<select id="qnaList" resultMap="qnaResult">	  	  		
+				SELECT * FROM hostqna
+		</select>
+		
+	</mapper>
