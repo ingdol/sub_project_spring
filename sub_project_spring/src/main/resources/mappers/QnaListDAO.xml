@@ -19,5 +19,11 @@
 	  	<select id="qnaList" resultMap="qnaResult">	  	  		
 				SELECT * FROM hostqna
 		</select>
-		
+		<select id="qnadetailview" resultMap="qnaResult">	  	  		
+				SELECT * FROM hostqna WHERE hostqnaNo= #{hostqnaNo} 
+		</select>
+		<insert id="qnainsert" parameterType="com.multi.sub_project_spring.QnaList.QnaListVO">
+			INSERT INTO hostqna (memNick, hostqnaTitle, hostqnaInfo, hostqnaDate,hostqnaFaq)
+			VALUES (#{memNick}, #{hostqnaTitle}, #{hostqnaInfo},CURRENT_TIMESTAMP,1)
+		</insert>		
 	</mapper>
