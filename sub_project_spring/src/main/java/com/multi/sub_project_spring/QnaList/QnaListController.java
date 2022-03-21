@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,4 +29,15 @@ public class QnaListController {
 //		ArrayList<QnaListVO> qnaList = qnaser.qnaList();		
 //		return qnaList; // qna 리스트
 //	}
+	
+	@RequestMapping("qnadetailview/{hostqnaNo}")
+	public QnaListVO qnadetailView(@PathVariable  int hostqnaNo) {		
+		System.out.println(qnaser.qnadetailview(hostqnaNo));
+		return qnaser.qnadetailview(hostqnaNo);//상품 상세 정보 
+	} 
+	
+	@RequestMapping("qnaInsert")
+	public void qnainsert(QnaListVO qna) {		
+		qnaser.qnainsert(qna);	 
+	}
 }

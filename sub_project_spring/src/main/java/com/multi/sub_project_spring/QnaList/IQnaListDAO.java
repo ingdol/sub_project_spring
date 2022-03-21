@@ -5,5 +5,7 @@ import java.util.ArrayList;
 public interface IQnaListDAO {
 
 	ArrayList<QnaListVO> qnaList();
+	QnaListVO qnadetailview(int hostqnaNo);
+	void qnainsert(QnaListVO qna);
 
 }
