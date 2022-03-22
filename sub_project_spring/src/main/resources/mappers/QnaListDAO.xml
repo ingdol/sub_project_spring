@@ -19,11 +19,28 @@
 	  	<select id="qnaList" resultMap="qnaResult">	  	  		
 				SELECT * FROM hostqna
 		</select>
+		
+		<!-- qna 상세페이지조회  -->
 		<select id="qnadetailview" resultMap="qnaResult">	  	  		
 				SELECT * FROM hostqna WHERE hostqnaNo= #{hostqnaNo} 
 		</select>
+		
+		<!-- qna 새글작성  -->
 		<insert id="qnainsert" parameterType="com.multi.sub_project_spring.QnaList.QnaListVO">
 			INSERT INTO hostqna (memNick, hostqnaTitle, hostqnaInfo, hostqnaDate,hostqnaFaq)
 			VALUES (#{memNick}, #{hostqnaTitle}, #{hostqnaInfo},CURRENT_TIMESTAMP,1)
-		</insert>		
+		</insert>
+		
+		<!-- qna삭제  -->
+		<delete id="qnadelete"  parameterType="int">
+  			DELETE FROM hostqna WHERE hostqnaNo=#{hostqnaNo}
+  		</delete>		
+  		
+  		<!-- qna 수정 -->
+	  	<update id="qnaupdate" parameterType="com.multi.sub_project_spring.QnaList.QnaListVO">
+	  		UPDATE hostqna 
+			SET hostqnaNo=#{hostqnaNo}, memNick=#{memNick}, hostqnaTitle=#{hostqnaTitle} 
+					, hostqnaInfo=#{hostqnaInfo}, hostqnaDate=CURRENT_TIMESTAMP
+			WHERE hostqnaNo=#{hostqnaNo}
+	  	</update>
 	</mapper>

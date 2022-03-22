@@ -7,4 +7,6 @@ public interface IQnaListService {
 	ArrayList<QnaListVO> qnaList();
 	QnaListVO qnadetailview(int hostqnaNo);
 	void qnainsert(QnaListVO qna);
+	void qnadelete(int hostqnaNo);
+	void qnaupdate(QnaListVO qna);
 }
