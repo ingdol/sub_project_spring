@@ -25,4 +25,12 @@ public class QnaListService implements IQnaListService {
 		dao.qnainsert(qna);
 	}
 
+	public void qnadelete(int hostqnaNo) {
+		dao.qnadelete(hostqnaNo);
+	}
+
+	public void qnaupdate(QnaListVO qna) {		
+		dao.qnaupdate(qna);
+	}
+
 }
