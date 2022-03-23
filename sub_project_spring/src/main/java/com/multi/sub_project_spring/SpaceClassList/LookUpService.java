@@ -21,4 +21,14 @@ public class LookUpService implements ILookUpService{
     public ArrayList<ClassVO> ClassList() {
         return dao.ClassList();
     }
+
+    @Override
+    public ClassVO DetailClass(int classNo) {
+        return dao.DetailClass(classNo);
+    }
+
+    @Override
+    public void UpdateClass(ClassVO classVO) {
+        dao.UpdateClass(classVO);
+    }
 }

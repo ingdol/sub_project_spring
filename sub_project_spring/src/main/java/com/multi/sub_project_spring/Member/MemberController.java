@@ -2,6 +2,9 @@ package com.multi.sub_project_spring.Member;
 
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,19 +19,30 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	
-	@RequestMapping(value="host-sign")
-	public String hostSign(@RequestBody HashMap<String, String> param) {
-		System.out.println(param);
-		System.out.println(param.get("hostName"));
+	
+	@RequestMapping(value="/host-sign")
+	public void hostSignController(@RequestBody MemberVO memberVO, HttpServletRequest request) {
+		memberService.hostSign(memberVO);
+
+	}
+	
+
+	@RequestMapping(value = "/login")
+	public MemberVO signInController(@RequestBody MemberVO memberVO, HttpServletRequest request) {
 		
-		MemberVO vo = new MemberVO();
-		vo.setHostName(param.get("hostName"));
-		vo.setHostPhone(param.get("hostPhone"));
-		vo.setHostInfo(param.get("hostInfo"));
+		MemberVO key = new MemberVO();
+		key = memberService.SignIn(memberVO);
 		
-		memberService.hostSign(vo);
+		if(key == null) {
+			key = new MemberVO();
+			key.setResult("fail");
+		}else {
+			key.setResult("success");
+			//session.setAttribute("sid", key.getMemId());
+			//session.setMaxInactiveInterval(1800); // 30분
+		}
 		
-		return "안녕하세요";
+		return key;
 	}
 
 }
