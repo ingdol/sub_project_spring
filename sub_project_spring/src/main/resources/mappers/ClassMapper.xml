@@ -30,4 +30,10 @@
         WHERE classNo=#{classNo}
     </update>
 
+
+<insert id="insertClass" parameterType="com.multi.sub_project_spring.SpaceClassList.ClassVO">
+			INSERT INTO Class(memNick,classTitle,classInfo,hobbyNo,classArea,classPhoto,classOpen,classHate) 
+			VALUES ('${memNick}', '${classTitle}',  '${classInfo}',${hobbyNo},'${classArea}','${classPhoto}',CURRENT_TIMESTAMP,0)
+	</insert>
+    
 </mapper>
