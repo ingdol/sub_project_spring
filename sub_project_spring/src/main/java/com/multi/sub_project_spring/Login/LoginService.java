@@ -23,6 +23,8 @@ public class LoginService implements ILoginService {
 		return dao.listAllMember();
 	}
 
-
-
+	@Override
+	public LoginVO memInfo(String memId) {
+		return dao.memInfo(memId);
+	}
 }

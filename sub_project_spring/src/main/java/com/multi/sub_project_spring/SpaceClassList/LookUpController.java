@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 
 @CrossOrigin("*")
@@ -14,13 +15,7 @@ public class LookUpController {
     @Autowired
     LookUpService service;
 
-    @RequestMapping("SpaceClassList")
-    public HashMap<String, Object> LookUp() {
-        HashMap<String, Object> map = new HashMap<String, Object>();
-        map.put("space", service.SpaceList());
-        map.put("class", service.ClassList());
-        return map;
-    }
+
 
     @RequestMapping("/DetailClass/{classNo}")
     public ClassVO DetailClass(@PathVariable int classNo) {
@@ -28,8 +23,10 @@ public class LookUpController {
     }
 
 
-    @RequestMapping(value="/UpdateClass")
+    @RequestMapping("/UpdateClass")
     public void updateProduct(ClassVO classVO) {
+        System.out.println(classVO);
+        System.out.println(classVO.getClassInfo());
         service.UpdateClass(classVO);
     }
 }

@@ -17,8 +17,12 @@
         <result property="classRecommand" column="classRecommand" />
     </resultMap>
 
-    <select id="ClassList" resultMap="classResult">
+    <select id="ClassListAll" resultMap="classResult">
         SELECT * FROM Class
+    </select>
+
+    <select id="ClassList" resultMap="classResult">
+        SELECT * FROM Class WHERE memNick=#{memNick}
     </select>
 
     <select id="DetailClass" resultType="com.multi.sub_project_spring.SpaceClassList.ClassVO" parameterType="int">
