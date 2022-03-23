@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.multi.sub_project_spring.Login.IMemberDAO;
+import com.multi.sub_project_spring.Login.ILoginDAO;
 import com.multi.sub_project_spring.Member.dao.MemberDAO;
 import com.multi.sub_project_spring.QnaList.IQnaListDAO;
 import com.multi.sub_project_spring.SpaceClassList.ILookUpDAO;
@@ -14,9 +14,7 @@ import com.multi.sub_project_spring.SpaceClassList.ILookUpDAO;
 @ComponentScan(basePackages = {"com.multi.sub_project_spring"})
 @MapperScan(basePackageClasses = IQnaListDAO.class)
 @MapperScan(basePackageClasses = ILookUpDAO.class)
-@MapperScan(basePackageClasses = IMemberDAO.class)
-public class SubProjectSpringApplication {
-
+@MapperScan(basePackageClasses = ILoginDAO.class)
 @MapperScan(basePackageClasses = MemberDAO.class)
 
 public class SubProjectSpringApplication {
