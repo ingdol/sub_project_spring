@@ -21,4 +21,19 @@
         SELECT * FROM Class
     </select>
 
+    <select id="DetailClass" resultType="com.multi.sub_project_spring.SpaceClassList.ClassVO" parameterType="int">
+        SELECT * FROM Class WHERE classNO=#{classNo}
+    </select>
+
+    <update id="UpdateClass" parameterType="com.multi.sub_project_spring.SpaceClassList.ClassVO">
+        UPDATE Class SET classArea=#{classArea}, hobbyNo=#{hobbyNo}, classTitle=#{classTitle}, classInfo=#{classInfo}
+        WHERE classNo=#{classNo}
+    </update>
+
+
+<insert id="insertClass" parameterType="com.multi.sub_project_spring.SpaceClassList.ClassVO">
+			INSERT INTO Class(memNick,classTitle,classInfo,hobbyNo,classArea,classPhoto,classOpen,classHate) 
+			VALUES ('${memNick}', '${classTitle}',  '${classInfo}',${hobbyNo},'${classArea}','${classPhoto}',CURRENT_TIMESTAMP,0)
+	</insert>
+    
 </mapper>
