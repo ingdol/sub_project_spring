@@ -6,5 +6,6 @@ import java.util.HashMap;
 public interface ILoginDAO {
 
 	LoginVO loginCheck(HashMap<String, Object> map);
-	ArrayList<LoginVO> listAllMember();   	
+	ArrayList<LoginVO> listAllMember();
+	LoginVO memInfo(String memId);
 }
