@@ -10,9 +10,20 @@ import com.multi.sub_project_spring.Member.model.MemberVO;
 @Service
 public class MemberService implements IMemberService {
 	
-	@Autowired(required = false)
-	@Qualifier("MemberDAO")
+	@Autowired
 	MemberDAO dao;
+	
+	@Override
+	public String memId(String memId) {
+		// TODO Auto-generated method stub
+		return dao.memId(memId);
+	}
+	
+	@Override
+	public String memPw(String memPw) {
+		// TODO Auto-generated method stub
+		return dao.memPw(memPw);
+	}
 
 	@Override
 	public String hostName(String hostName) {
@@ -35,8 +46,13 @@ public class MemberService implements IMemberService {
 	@Override
 	public void hostSign(MemberVO vo) {
 		// TODO Auto-generated method stub
-		System.out.println(vo.getHostPhone());
-		dao.hostSign(vo);
+		dao.insertHostSign(vo);
+	}
+	
+	@Override
+	public MemberVO SignIn(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return dao.selectSignIn(vo);
 	}
 
 }

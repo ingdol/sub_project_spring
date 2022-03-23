@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.multi.sub_project_spring.Member.dao.MemberDAO">
+	<resultMap type="com.multi.sub_project_spring.Member.model.MemberVO" id="MemberResult">
+		<result property="memId" column="memId" />
+		<result property="memPw" column="memPw" />
+		<result property="memNick" column="memNick" />
+		<result property="hostName" column="hostName" />
+		<result property="hostPhone" column="hostPhone" />
+		<result property="hostInfo" column="hostInfo" />
+	</resultMap>
+	
+	<insert id="insertHostSign" parameterType="com.multi.sub_project_spring.Member.model.MemberVO" >
+		INSERT INTO hostMember
+		(
+			hostName, 
+			hostPhone, 
+			hostInfo
+		) 
+		 VALUES
+		(
+			#{hostName}, 
+			#{hostPhone}, 
+			#{hostInfo}
+		)
+	</insert>
+	
+	<select id="selectSignIn" resultMap="MemberResult" parameterType="com.multi.sub_project_spring.Member.model.MemberVO">
+		SELECT memId, memPw, memNick FROM Member WHERE memId=#{memId} AND memPw=#{memPw}
+	</select>
+
+</mapper>
