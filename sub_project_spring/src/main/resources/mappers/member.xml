@@ -3,8 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.multi.sub_project_spring.Member.dao.MemberDAO">
-	<resultMap type="com.multi.sub_project_spring.Member.model.MemberVO" id="memResult">
+<mapper namespace="com.multi.sub_project_spring.Login.IMemberDAO">
+	<resultMap type="com.multi.sub_project_spring.Login.MemberVO" id="memResult">
 		<result property="memName" column="memName" />
 		<result property="memId" column="memId" />
 		<result property="memPw" column="memPw" />

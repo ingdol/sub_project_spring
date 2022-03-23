@@ -20,4 +20,5 @@
     <select id="ClassList" resultMap="classResult">
         SELECT * FROM Class
     </select>
+
 </mapper>
