@@ -27,7 +27,11 @@
 	
 	<!-- 로그인 확인 -->
 	<select id="loginCheck" resultMap="memResult" parameterType="hashmap">
-		SELECT * FROM member WHERE memId=#{id} AND memPw=#{pwd}
+		SELECT * FROM member WHERE memId=#{memId} AND memPw=#{memPw}
 	</select>
+	
+ 	<select id="listAllMember" resultMap="memResult">
+ 		SELECT * FROM member
+ 	</select>
 
 </mapper>
