@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.multi.sub_project_spring.SpaceClassList.ILookUpDAO">
+    <resultMap id="classResult" type="com.multi.sub_project_spring.SpaceClassList.ClassVO">
+        <result property="classNo" column="classNo" />
+        <result property="memNick" column="memNick" />
+        <result property="classTitle" column="classTitle" />
+        <result property="classInfo" column="classInfo" />
+        <result property="hobbyNo" column="hobbyNo" />
+        <result property="classArea" column="classArea" />
+        <result property="classPhoto" column="classPhoto" />
+        <result property="classOpen" column="classOpen" />
+        <result property="classRecommand" column="classRecommand" />
+    </resultMap>
+
+    <select id="ClassList" resultMap="classResult">
+        SELECT * FROM Class
+    </select>
+
+</mapper>
