@@ -17,7 +17,7 @@
 		
 		<!--  전체 qna리스트 조회 -->
 	  	<select id="qnaList" resultMap="qnaResult">	  	  		
-				SELECT * FROM hostqna
+				SELECT * FROM hostqna ORDER BY hostqnaNo DESC
 		</select>
 		
 		<!-- qna 상세페이지조회  -->
