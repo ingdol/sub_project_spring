@@ -24,15 +24,11 @@ public class LookUpController {
 
     @RequestMapping("SessionForList")
     public void sessionNick(@RequestBody HashMap<String, Object> requestData) {
-        System.out.println("Load");
-        System.out.println(requestData.get("sNick"));
         memNick = (String) requestData.get("sNick");
-        System.out.println("memNick : " + memNick);
     }
 
     @RequestMapping("SpaceClassList")
     public HashMap<String, Object> LookUp(HttpSession session) {
-        System.out.println("test");
         HashMap<String, Object> map = new HashMap<String, Object>();
         map.put("space", lookUpService.SpaceList(memNick));
         map.put("class", lookUpService.ClassList(memNick));
@@ -48,7 +44,12 @@ public class LookUpController {
     @RequestMapping("/UpdateClass")
     public void updateProduct(ClassVO classVO) {
         System.out.println(classVO);
-        System.out.println(classVO.getClassInfo());
+        System.out.println("classNo : " + classVO.getClassNo());
+        System.out.println("memNick : " + classVO.getMemNick());
+        System.out.println("classInfo : " + classVO.getClassInfo());
+        System.out.println("classArea : " + classVO.getClassArea());
+        System.out.println("classTitle : " + classVO.getClassTitle());
+        System.out.println("HobbyNo : " + classVO.getHobbyNo());
         lookUpService.UpdateClass(classVO);
     }
 }
