@@ -34,4 +34,8 @@
  		SELECT * FROM member
  	</select>
 
+	<select id="memInfo" resultMap="memResult">
+		SELECT * FROM member WHERE memId=#{memId}
+	</select>
+
 </mapper>
