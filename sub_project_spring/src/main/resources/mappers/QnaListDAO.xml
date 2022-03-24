@@ -22,7 +22,7 @@
 		
 		<!-- qna 상세페이지조회  -->
 		<select id="qnadetailview" resultMap="qnaResult">	  	  		
-				SELECT * FROM hostqna WHERE hostqnaNo= #{hostqnaNo} 
+				SELECT * FROM hostqna WHERE hostqnaNo= #{hostqnaNo} and memNick=#{memNick}
 		</select>
 		
 		<!-- qna 새글작성  -->
