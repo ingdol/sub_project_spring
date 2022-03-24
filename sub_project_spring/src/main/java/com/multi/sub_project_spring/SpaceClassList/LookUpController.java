@@ -1,10 +1,7 @@
 package com.multi.sub_project_spring.SpaceClassList;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
@@ -13,13 +10,38 @@ import java.util.HashMap;
 @RestController
 public class LookUpController {
     @Autowired
-    LookUpService service;
+    LookUpService lookUpService;
 
+    String memNick = "";
 
+    @RequestMapping("SpaceClassListAll")
+    public HashMap<String, Object> LookUpAll(HttpSession session) {
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("space", lookUpService.SpaceListAll());
+        map.put("class", lookUpService.ClassListAll());
+        return map;
+    }
+
+    @RequestMapping("SessionForList")
+    public void sessionNick(@RequestBody HashMap<String, Object> requestData) {
+        System.out.println("Load");
+        System.out.println(requestData.get("sNick"));
+        memNick = (String) requestData.get("sNick");
+        System.out.println("memNick : " + memNick);
+    }
+
+    @RequestMapping("SpaceClassList")
+    public HashMap<String, Object> LookUp(HttpSession session) {
+        System.out.println("test");
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("space", lookUpService.SpaceList(memNick));
+        map.put("class", lookUpService.ClassList(memNick));
+        return map;
+    }
 
     @RequestMapping("/DetailClass/{classNo}")
     public ClassVO DetailClass(@PathVariable int classNo) {
-        return service.DetailClass(classNo);
+        return lookUpService.DetailClass(classNo);
     }
 
 
@@ -27,6 +49,6 @@ public class LookUpController {
     public void updateProduct(ClassVO classVO) {
         System.out.println(classVO);
         System.out.println(classVO.getClassInfo());
-        service.UpdateClass(classVO);
+        lookUpService.UpdateClass(classVO);
     }
 }
