@@ -29,10 +29,10 @@ public class QnaListController {
 //		return qnaList; // qna 리스트
 //	}
 	
-	@RequestMapping("qnadetailview/{hostqnaNo}")
-	public QnaListVO qnadetailView(@PathVariable  int hostqnaNo) {		
-		System.out.println(qnaser.qnadetailview(hostqnaNo));
-		return qnaser.qnadetailview(hostqnaNo);//상품 상세 정보 
+	@RequestMapping("qnadetailview/{hostqnaNo}/{memNick}")
+	public QnaListVO qnadetailView(@PathVariable  int hostqnaNo,@PathVariable String memNick) {		
+		System.out.println(qnaser.qnadetailview(hostqnaNo,memNick));
+		return qnaser.qnadetailview(hostqnaNo,memNick);//상품 상세 정보 
 	} 
 	
 	@RequestMapping("qnaInsert")

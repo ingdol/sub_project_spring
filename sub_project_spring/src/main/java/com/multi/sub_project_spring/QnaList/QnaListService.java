@@ -17,8 +17,8 @@ public class QnaListService implements IQnaListService {
 		return dao.qnaList();
 	}
 
-	public QnaListVO qnadetailview(int hostqnaNo) {
-		return dao.qnadetailview(hostqnaNo);
+	public QnaListVO qnadetailview(int hostqnaNo, String memNick) {
+		return dao.qnadetailview(hostqnaNo,memNick);
 	}
 
 	public void qnainsert(QnaListVO qna) {		
