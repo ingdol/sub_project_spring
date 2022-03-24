@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.multi.sub_project_spring.CreateClass.ICreateSpaceDAO">
+<insert id="insertSpace" parameterType="com.multi.sub_project_spring.SpaceClassList.SpaceVO">
+			INSERT INTO Space(memNick,spaceTitle,spaceInfo,spaceCtgNo,spaceArea,spacePrice1,spacePrice2,spacePerNum,spacePerMax,spaceOpen,spacePhoto,spacePhoto2) 
+			VALUES ('${memNick}', '${spaceTitle}',  '${spaceInfo}','${spaceCtgNo}','${spaceArea}',${spacePrice1},${spacePrice2},${spacePerNum},${spacePerMax},CURRENT_TIMESTAMP,'${spacePhoto}','${spacePhoto2}')
+	</insert>
+	
+	</mapper>
