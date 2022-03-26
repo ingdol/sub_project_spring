@@ -28,8 +28,18 @@ public class LookUpService implements ILookUpService{
     }
 
     @Override
+    public SpaceVO DetailSpace(int spaceNo) {
+        return dao.DetailSpace(spaceNo);
+    }
+
+    @Override
     public void UpdateClass(ClassVO classVO) {
         dao.UpdateClass(classVO);
+    }
+
+    @Override
+    public void UpdateSpace(SpaceVO spaceVO) {
+        dao.UpdateSpace(spaceVO);
     }
 
     @Override

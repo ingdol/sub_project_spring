@@ -40,16 +40,18 @@ public class LookUpController {
         return lookUpService.DetailClass(classNo);
     }
 
+    @RequestMapping("/DetailSpace/{spaceNo}")
+    public SpaceVO DetailSpace(@PathVariable int spaceNo) {
+        return lookUpService.DetailSpace(spaceNo);
+    }
 
     @RequestMapping("/UpdateClass")
-    public void updateProduct(ClassVO classVO) {
-        System.out.println(classVO);
-        System.out.println("classNo : " + classVO.getClassNo());
-        System.out.println("memNick : " + classVO.getMemNick());
-        System.out.println("classInfo : " + classVO.getClassInfo());
-        System.out.println("classArea : " + classVO.getClassArea());
-        System.out.println("classTitle : " + classVO.getClassTitle());
-        System.out.println("HobbyNo : " + classVO.getHobbyNo());
+    public void updateClass(ClassVO classVO) {
         lookUpService.UpdateClass(classVO);
+    }
+
+    @RequestMapping("/UpdateSpace")
+    public void updateSpace(SpaceVO spaceVO) {
+        lookUpService.UpdateSpace(spaceVO);
     }
 }

@@ -27,4 +27,14 @@
     <select id="SpaceList" resultMap="spaceResult" >
         SELECT * FROM Space WHERE memNick=#{memNick}
     </select>
+
+    <select id="DetailSpace" resultType="com.multi.sub_project_spring.SpaceClassList.SpaceVO" parameterType="int">
+        SELECT * FROM Space WHERE spaceNo=#{spaceNo}
+    </select>
+
+    <update id="UpdateSpace" parameterType="com.multi.sub_project_spring.SpaceClassList.SpaceVO">
+        UPDATE Space SET spaceArea=#{spaceArea}, spaceCtgNo=#{spaceCtgNo}, spaceTitle=#{spaceTitle}, spaceInfo=#{spaceInfo}, spacePrice1=#{spacePrice1}, spacePrice2=#{spacePrice2}, spacePerNum=#{spacePerNum}, spacePerMax=#{spacePerMax}
+        WHERE spaceNo=#{spaceNo}
+    </update>
+
 </mapper>

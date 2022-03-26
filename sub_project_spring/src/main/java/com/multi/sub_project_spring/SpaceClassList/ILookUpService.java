@@ -8,5 +8,7 @@ public interface ILookUpService {
     ArrayList<SpaceVO> SpaceList(String memNick);
     ArrayList<ClassVO> ClassList(String memNick);
     ClassVO DetailClass(int classNo);
+    SpaceVO DetailSpace(int spaceNo);
     void UpdateClass(ClassVO classVO);
+    void UpdateSpace(SpaceVO spaceVO);
 }
