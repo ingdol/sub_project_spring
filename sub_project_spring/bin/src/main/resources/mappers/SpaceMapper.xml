@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.multi.sub_project_spring.SpaceClassList.ILookUpDAO">
+    <resultMap id="spaceResult" type="com.multi.sub_project_spring.SpaceClassList.SpaceVO">
+        <result property="spaceNo" column="spaceNo" />
+        <result property="memNick" column="memNick" />
+        <result property="spaceTitle" column="spaceTitle" />
+        <result property="spaceInfo" column="spaceInfo" />
+        <result property="spaceCtgNo" column="spaceCtgNo" />
+        <result property="spaceArea" column="spaceArea" />
+        <result property="spacePrice1" column="spacePrice1" />
+        <result property="spacePrice2" column="spacePrice2" />
+        <result property="spacePerNum" column="spacePerNum" />
+        <result property="spacePerMax" column="spacePerMax" />
+        <result property="spaceOpen" column="spaceOpen" />
+        <result property="spacePhoto" column="spacePhoto" />
+        <result property="spacePhoto2" column="spacePhoto2" />
+    </resultMap>
+
+    <select id="SpaceListAll" resultMap="spaceResult" >
+        SELECT * FROM Space
+    </select>
+    <select id="SpaceList" resultMap="spaceResult" >
+        SELECT * FROM Space WHERE memNick=#{memNick}
+    </select>
+
+    <select id="DetailSpace" resultType="com.multi.sub_project_spring.SpaceClassList.SpaceVO" parameterType="int">
+        SELECT * FROM Space WHERE spaceNo=#{spaceNo}
+    </select>
+
+    <update id="UpdateSpace" parameterType="com.multi.sub_project_spring.SpaceClassList.SpaceVO">
+        UPDATE Space SET spaceArea=#{spaceArea}, spaceCtgNo=#{spaceCtgNo}, spaceTitle=#{spaceTitle}, spaceInfo=#{spaceInfo}, spacePrice1=#{spacePrice1}, spacePrice2=#{spacePrice2}, spacePerNum=#{spacePerNum}, spacePerMax=#{spacePerMax}
+        WHERE spaceNo=#{spaceNo}
+    </update>
+
+</mapper>
