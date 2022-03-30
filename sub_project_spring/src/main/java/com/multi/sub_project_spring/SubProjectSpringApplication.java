@@ -13,6 +13,7 @@ import com.multi.sub_project_spring.SpaceClassList.ILookUpDAO;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.multi.sub_project_spring"})
+@ComponentScan(basePackageClasses = CustomErrorController.class)
 @MapperScan(basePackageClasses = IQnaListDAO.class)
 @MapperScan(basePackageClasses = ILookUpDAO.class)
 @MapperScan(basePackageClasses = ICreateClassDAO.class)
